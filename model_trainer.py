@@ -12,8 +12,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 from keras import layers
-from keras.models import Sequential, clone_model
-from keras.layers.core import Dense, Dropout, Activation, Flatten
+from keras.models import Sequential
 
 def show_image(arr):
     two_d = (np.reshape(arr, (28, 28)) * 255).astype(np.uint8)
