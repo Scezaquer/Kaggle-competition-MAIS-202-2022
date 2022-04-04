@@ -51,7 +51,7 @@ def load_labels(filename):
 train_images = np.load("train_images.npy")#Load training data
 #show_image(train_images[x]) # 0 is the index of the training image you want to display
 
-number_of_models = 10
+number_of_models = 5
 models = []
 for x in range(number_of_models):#Create n models
 	models.append(create_model())
@@ -65,7 +65,7 @@ for x, model in enumerate(models):#Train all the models
 	val_labels = train_labels[int(x*val_split*len(train_images)):int((x+1)*val_split*len(train_images))]
 	train_set = np.concatenate(( train_images[:int(x*val_split*len(train_images))], train_images[int((x+1)*val_split*len(train_images)):]))
 	train_lb = np.concatenate(( train_labels[:int(x*val_split*len(train_images))], train_labels[int((x+1)*val_split*len(train_images)):]))
-	history = model.fit(train_set, train_lb, validation_data=(val_set, val_labels), epochs = 10)
+	history = model.fit(train_set, train_lb, validation_data=(val_set, val_labels), epochs = 20)
 
 	"""plt.plot(history.history['accuracy'], label='accuracy')
 	plt.plot(history.history['val_accuracy'], label = 'val_accuracy')
